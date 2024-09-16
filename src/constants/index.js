@@ -1,6 +1,7 @@
 import express from "../assets/projects/express.png";
 import elegant from "../assets/projects/elegant.png";
 import wyspy from "../assets/projects/wyspy.png";
+import review1 from "../assets/review/review1.png";
 
 export const HERO_CONTENT = `Jestem wykwalifikowanym, licencjonowanym przewodnikiem z ponad 30-letnim doświadczeniem, mieszkającym i pracującym w Paryżu. Oferuję szeroką gamę wycieczek po Paryżu i jego okolicach, dostosowanych do zainteresowań i potrzeb turystów.
 Dlaczego warto wybrać mnie jako przewodnika po Paryżu?
@@ -92,3 +93,50 @@ export const CONTACT = {
   phoneNo: "+12 4555 666 00 ",
   email: "me@example.com",
 };
+
+export const review = [
+  {
+  name: 'Beata Czerwińska',
+  source: 'facebook',
+  review: 'Polecam serdecznie panią Joannę Wróblewską, dwukrotnie zwiedzałam z tą przewodnik Louvre, pasjonatka z ogromną wiedzą, niezwykle taktowna, ciepła i serdeczna osoba😊😊',
+  link: "https://www.facebook.com/search/top/?q=zapraszam%20na%20spacery%20do%20Wersalu"
+  },
+  {
+  name: 'Beata Wierus',
+  source: 'facebook',
+  review: 'Serdecznie pozdrawiam mam nadzieję że jeszcze się spotkamy ?..Paryż magiczny jeśli tylko jeszcze wrócę to chciałabym zobaczyć Pani śladami ❤️dziękujemy',
+  link: "https://www.facebook.com/reel/1049436806528357"
+  },
+  {
+  name: 'Irena Molenda',
+  source: 'facebook',
+  review: 'Przemiła i bardzo kompetentna osoba. Polecam każdemu, kto chce poznać miasto.❤️',
+  link: "https://www.facebook.com/reel/1049436806528357"
+  },
+  {
+  name: 'Anna Habiera Licencjonowany przewodnik po Francji AkwitAnia',
+  source: 'facebook',
+  review: 'Luwr tylko z Asią 💖',
+  link: "https://www.facebook.com/joannawroblewskiparyz/posts/pfbid0P8Y4N1MbuyzTFjVQFeXhfmKyPFFRxgHxCezyXrWDtXvdM3p4K1vhDcKvsi1fA27tl?rdid=O0guVVUpB9DqLsI2"
+  },
+  {
+  name: 'Olga Moździerz',
+  source: 'facebook',
+  review: 'Serdecznie pozdrawiamy i jeszcze raz dziękujemy za wspólnie spędzony czas !!!',
+  link: "https://www.facebook.com/joannawroblewskiparyz/posts/pfbid05gVBM7sEZBFxmoVA5ARqxSGGCo3GB6o3HoxHU998qtqnE6fWaNWaBkxB3dWD9Bbkl?rdid=LKbZ9TYQkdhVolup"
+  },
+  {
+  name: 'Bogusław Rzeźnicki',
+  source: 'facebook',
+  review: 'Pani Joanno, z Panią każda ulica i zakątek Paryża jest dziełem sztuki! Dziękujemy za wszystko!!!',
+  link: "https://www.facebook.com/joannawroblewskiparyz/posts/pfbid02FBn4qjEHh9VwDnZPWTf9L7uiCB9ceLbCLUBymeA6e52tsg1LR8XWqn1oSYBGfVwRl?rdid=xyR0W4fRgK9YPKuh"
+  },
+  {
+  name: 'Anna Mrozińska',
+  source: 'facebook',
+  review: 'Było fantastycznie, dziękuję 👍☀️☀️☀️',
+  link: "https://www.facebook.com/joannawroblewskiparyz/posts/pfbid0mum4y7n9AiB3HBigotRTJbup2Fqw8Q6PrhvksKshpHMNXefdeAa8cTNxmAEJEEjVl?rdid=32WAMaX7uV5GfCUI"
+  },
+  
+
+];
