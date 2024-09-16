@@ -26,9 +26,10 @@ const App = () => {
       <Tours />
       <Review />
       <Offer2 />
-      <Contact />
+      
 
      </div>
+     <Contact />
     </div>
   )
 }

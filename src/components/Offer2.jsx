@@ -2,10 +2,8 @@ import { RiGuideLine } from "react-icons/ri";
 import { BiHotel } from "react-icons/bi";
 import { MdDinnerDining } from "react-icons/md";
 import { MdOutlineDirectionsBoatFilled } from "react-icons/md";
-import { RiInformation2Line } from "react-icons/ri";
 import { FaRegSmileWink } from "react-icons/fa";
-import { FaWalking } from "react-icons/fa";
-import { AiOutlineWechat } from "react-icons/ai";
+
 
 const Offer2 = () => {
   return (
