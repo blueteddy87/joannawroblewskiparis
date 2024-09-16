@@ -102,6 +102,12 @@ export const review = [
   link: "https://www.facebook.com/search/top/?q=zapraszam%20na%20spacery%20do%20Wersalu"
   },
   {
+  name: 'jadwigasienkiewicz3643',
+  source: 'youtube',
+  review: 'Przepiękny głos. Opowieść snuje się jak tajemnicza baśń. Tempo pozwala na zadumę, refleksję i przemyślenie tego, co słyszę. Ciepło robi się na duszy. Dawno nie słyszałam aby ktoś tak pięknie opowiadał o zwiedzanych miejscach. Gratuluję, to dar!',
+  link: "https://www.youtube.com/watch?v=Kuhw78J-Au0"
+  },
+  {
   name: 'Beata Wierus',
   source: 'facebook',
   review: 'Serdecznie pozdrawiam mam nadzieję że jeszcze się spotkamy ?..Paryż magiczny jeśli tylko jeszcze wrócę to chciałabym zobaczyć Pani śladami ❤️dziękujemy',
@@ -112,6 +118,12 @@ export const review = [
   source: 'facebook',
   review: 'Przemiła i bardzo kompetentna osoba. Polecam każdemu, kto chce poznać miasto.❤️',
   link: "https://www.facebook.com/reel/1049436806528357"
+  },
+  {
+  name: 'romanmadue1',
+  source: 'youtube',
+  review: 'Świetne! Joanno - gratulacje! Z przyjemnością wysłuchałem. A jak wiesz kolegów przewodników (także nielicencjonowanych nie łatwo uwieść! Raz jeszcze z całego serca gratuluję! Jerzy R. Kaczyński',
+  link: "https://www.youtube.com/watch?v=Kuhw78J-Au0"
   },
   {
   name: 'Anna Habiera Licencjonowany przewodnik po Francji AkwitAnia',
@@ -130,6 +142,12 @@ export const review = [
   source: 'facebook',
   review: 'Pani Joanno, z Panią każda ulica i zakątek Paryża jest dziełem sztuki! Dziękujemy za wszystko!!!',
   link: "https://www.facebook.com/joannawroblewskiparyz/posts/pfbid02FBn4qjEHh9VwDnZPWTf9L7uiCB9ceLbCLUBymeA6e52tsg1LR8XWqn1oSYBGfVwRl?rdid=xyR0W4fRgK9YPKuh"
+  },
+  {
+  name: 'barbarahoussa7216',
+  source: 'youtube',
+  review: 'Każda wizyta w towarzystwie Joanny wnosi nowe spojrzenie na artystow na temat ktorych , jak nam  by sie wydawalo  , juz wszystko słyszeliśmy.  Na tym polega jej talent. Malowniczy kadr i ciekawe materialy . Czekamy na nastepne wizyty',
+  link: "https://www.youtube.com/watch?v=B5I7GWEutxs"
   },
   {
   name: 'Anna Mrozińska',
