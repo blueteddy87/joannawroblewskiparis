@@ -37,7 +37,7 @@ const Tours = () => {
                 className="w-full max-w-xl lg:w-3/4"
               >
                 <h6 className="mb-2 font-semibold ">{tours.title}</h6>
-                <p className="mb-4 text-neutral-400 font-light tracking-tighter">
+                <p className="mb-4 text-neutral-400 font-light tracking-tight">
                   {tours.description}
                 </p>
                 {tours.atrakcje.map((tech, index) => (

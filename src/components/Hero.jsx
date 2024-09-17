@@ -25,9 +25,7 @@ const Hero = () => {
             >
               Joanna Wróblewski
             </motion.h1>
-            <p className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-              test
-            </p>
+
             {/** 
                  * <span className="bg-gradient-to-r from-blue-900 via-gray-500 to-red-900 bg-clip-text text-4xl tracking-tight text-transparent">
                     Dyplomowany Przewodnik po Paryżu
@@ -46,7 +44,7 @@ const Hero = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="my-2 max-w-xl py-6 font-light tracking-tighter"
+              className="my-2 max-w-xl py-6 font-light tracking-wide"
             >
               {HERO_CONTENT}
             </motion.p>
