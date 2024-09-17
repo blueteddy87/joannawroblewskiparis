@@ -85,9 +85,9 @@ const Review = () => {
       initial={{ opacity: 0, scale: 0.5 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-3/4 m-auto"
+      className="w-3/4 mx-auto mt-100"
     >
-      <div className="mt-20">
+      <div className="mt-10">
         <motion.h1
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -100 }}

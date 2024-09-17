@@ -24,14 +24,17 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative w-full pb-20 pt-12 flex justify-center">
+    <div className="relative w-full pb-20 pt-24 flex justify-center">
       {/* Background Div */}
       <div className="absolute inset-0 -z-10 bg-white [background:radial-gradient(105%_105%_at_50%_10%,#fff_20%,#231b30_100%)]" />
 
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row max-w-[1400px] w-full p-8 bg-zinc-100 rounded-xl">
         {/* Contact Section with Image */}
-        <div className="lg:w-1/2 p-4 flex flex-col items-center lg:items-start">
+        <div
+          id="contact"
+          className="lg:w-1/2 p-4 flex flex-col items-center lg:items-start"
+        >
           <h1 className="my-5 text-center text-5xl font-bold text-blue-950 lg:text-left">
             Kontakt
           </h1>
@@ -135,7 +138,7 @@ const Contact = () => {
                   type="submit"
                   disabled={state.submitting}
                 >
-                  Zapraszam do współpracy <MdSend className="ml-3 text-2xl" />
+                  Wyślij <MdSend className="ml-3 text-2xl" />
                 </button>
               </form>
             </>

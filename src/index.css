@@ -19,3 +19,13 @@
 .slick-dots li button:before {
   color: white !important;
 }
+
+@layer base {
+  body {
+    @apply font-[Roboto];
+  }
+  li {
+    @apply px-4;
+    @apply cursor-pointer;
+  }
+}

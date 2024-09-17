@@ -13,19 +13,21 @@ const container = (delay) => ({
 
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35">
+    <div className="pt-28 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
-          <div className="flex flex-col items-center lg:items-start">
+          <div id="hero" className="flex flex-col items-center">
             <motion.h1
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl"
+              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl max-w-xl"
             >
               Joanna Wróblewski
             </motion.h1>
-
+            <p className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+              test
+            </p>
             {/** 
                  * <span className="bg-gradient-to-r from-blue-900 via-gray-500 to-red-900 bg-clip-text text-4xl tracking-tight text-transparent">
                     Dyplomowany Przewodnik po Paryżu
@@ -35,9 +37,9 @@ const Hero = () => {
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent"
+              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent max-w-xl"
             >
-              Paryż to więcej niż misto – to opowieść. Poznaj ją ze mną
+              Paryż to więcej niż miasto – to opowieść. Poznaj ją ze mną
               {/**Licencjonowany Przewodnik po Paryżu */}
             </motion.span>
             <motion.p
