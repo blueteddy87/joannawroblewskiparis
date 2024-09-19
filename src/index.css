@@ -22,7 +22,7 @@
 
 @layer base {
   body {
-    @apply font-[Roboto];
+    @apply font-[Inter];
   }
   li {
     @apply px-4;
