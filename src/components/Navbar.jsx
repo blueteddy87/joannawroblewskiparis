@@ -48,7 +48,7 @@ const Navbar = () => {
           >
             <li>
               <Link
-                to="hero"
+                to="app"
                 smooth={true}
                 duration={500}
                 className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
@@ -133,7 +133,7 @@ const Navbar = () => {
             href="https://przewodnikparyzjoanna.blogspot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-red-600"
+            className="hover:text-orange-500"
           >
             <FaBlogger />
           </a>
@@ -141,7 +141,7 @@ const Navbar = () => {
             href="https://www.youtube.com/@przewodnikpoparyzujoannawr9021"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-red-500"
+            className="hover:text-red-600"
           >
             <FaYoutube />
           </a>

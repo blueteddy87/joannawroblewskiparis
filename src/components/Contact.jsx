@@ -26,7 +26,8 @@ const Contact = () => {
   return (
     <div className="relative w-full pb-20 pt-24 flex justify-center">
       {/* Background Div */}
-      <div className="absolute inset-0 -z-10 bg-white [background:radial-gradient(105%_105%_at_50%_10%,#fff_20%,#231b30_100%)]" />
+      {/* <div className="absolute inset-0 -z-10 bg-white [background:radial-gradient(105%_105%_at_50%_10%,#fff_20%,#231b30_100%)]" /> */}
+      <div className="" />
 
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row max-w-[1400px] w-full p-8 bg-zinc-100 rounded-xl">
