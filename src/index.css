@@ -17,7 +17,7 @@
 }
 
 .slick-dots li button:before {
-  color: blue !important;
+  color: white !important;
 }
 
 @layer base {
