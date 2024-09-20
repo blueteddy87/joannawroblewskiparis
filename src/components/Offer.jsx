@@ -49,7 +49,7 @@ const Offer = () => {
           </motion.div>
           <p className="text-center font-light tracking-tighter">Informacje</p>
         </div>
-
+        {/**
         <div className="flex flex-col items-center gap-2">
           <motion.div
             variants={inconVariants(3)}
@@ -60,7 +60,7 @@ const Offer = () => {
             <BiHotel className="text-7xl text-green-700" />
           </motion.div>
           <p className="text-center font-light tracking-tighter">Noclegi</p>
-        </div>
+        </div> */}
 
         <div className="flex flex-col items-center gap-2">
           <motion.div
@@ -84,7 +84,7 @@ const Offer = () => {
             <MdOutlineDirectionsBoatFilled className="text-7xl text-blue-500" />
           </motion.div>
           <p className="text-center font-light tracking-tighter">
-            Rejsy sekwaną
+            Rejsy Sekwaną
           </p>
         </div>
 
