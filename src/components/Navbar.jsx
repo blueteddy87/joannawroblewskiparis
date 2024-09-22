@@ -33,7 +33,7 @@ const Navbar = () => {
       } flex items-center px-4`}
     >
       <div className="flex items-center justify-center w-full max-w-screen-xl mx-auto">
-        <div className="flex items-center space-x-4 flex-grow">
+        <div className="flex flex- items-center space-x-4 flex-grow">
           <img
             className={`mx-2 transition-all duration-300 ${
               scrolling ? "w-14" : "w-40"
@@ -42,7 +42,7 @@ const Navbar = () => {
             alt="logo"
           />
           <ul
-            className={`hidden md:flex pl-20 space-x-6  ${
+            className={`hidden xl:flex pl-20 space-x-6  ${
               scrolling ? "text-sm font-semibold" : "text-base"
             }`}
           >
