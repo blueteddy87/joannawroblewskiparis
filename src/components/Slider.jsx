@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Slider from "react-slick";
 import pic1 from "../assets/carousel/1.png";
 import pic2 from "../assets/carousel/2.png";
@@ -46,29 +47,58 @@ const images = [
   pic22,
 ];
 
+const captions = [
+  "Joanna Wróblewski – Twój przewodnik po Paryżu.",
+  "Odkryj ukryte skarby stolicy Francji!",
+  "Niezapomniane chwile z profesjonalnym przewodnikiem.",
+  "Paryż w całej okazałości – czekam na Ciebie!",
+  "Odwiedź magiczne miejsca z moją pomocą.",
+  "Doświadcz Paryża jak nigdy dotąd.",
+  "Jestem tu, aby spełnić Twoje marzenia podróżnicze.",
+  "Niech Paryż stanie się Twoim drugim domem.",
+  "Poznaj historie, które kryją się za zabytkami.",
+  "Twój czas w Paryżu zasługuje na to, co najlepsze.",
+  "Czekam na Ciebie w sercu Paryża!",
+  "Wspólnie odkryjemy najpiękniejsze zakątki.",
+  "Paryż – miasto, które nigdy nie przestaje zachwycać.",
+  "Twój przewodnik po kulturze, sztuce i smakach Paryża.",
+  "Przyjdź, a pokażę Ci Paryż oczami lokalnego eksperta.",
+  "Zaplanuj swoją przygodę z Joanną Wróblewską!",
+  "Zaufaj mi, a odkryjesz prawdziwy Paryż.",
+  "Czas na niezapomnianą podróż – tylko ze mną!",
+  "Zobacz Paryż w zupełnie nowym świetle.",
+  "Moje doświadczenie, Twoja przygoda w Paryżu.",
+];
+
 export default function SimpleSlider() {
-  var settings = {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 5000,
+    beforeChange: (current, next) => setCurrentSlide(next),
   };
 
   return (
     <div className="overflow-hidden select-none -mx-4">
       <Slider {...settings} className="h-full">
         {images.map((image, index) => (
-          <div key={index} className="h-full select-none">
-            {" "}
-            {/* Dodano select-none */}
+          <div key={index} className="relative select-none">
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover select-none" // Dodano select-none
+              className="w-full h-[50vh] object-cover lg:h-[60vh]" // Zmieniona wysokość dla małych i dużych ekranów
             />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-white text-lg font-extralight bg-black bg-opacity-60 p-6 lg:p-14 lg:text-4xl xl:text-6xl text-center">
+                {captions[currentSlide]}
+              </div>
+            </div>
           </div>
         ))}
       </Slider>

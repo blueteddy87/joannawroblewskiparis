@@ -18,7 +18,11 @@ const About = () => {
           className="w-full lg:w-1/2 lg:p-8"
         >
           <div className="flex items-center justify-center">
-            <img className="rounded-2xl w-4/6" src={aboutImg} alt="about" />
+            <img
+              className="rounded-2xl w-4/6 max-w-lg"
+              src={aboutImg}
+              alt="about"
+            />
           </div>
         </motion.div>
         <motion.div
@@ -28,7 +32,7 @@ const About = () => {
           className="w-full lg:w-1/2"
         >
           <div className="flex justify-center lg:justify-start">
-            <p className="my-2 maxw-xl py-6 font-light tracking-wide text-justify">
+            <p className="my-2  py-6 px-9 font-light tracking-wider text-justify">
               {ABOUT_TEXT}
             </p>
           </div>

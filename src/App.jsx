@@ -22,13 +22,13 @@ const App = () => {
       <div className="">
         <Navbar />
       </div>
-      <div className="container mx-auto px-8">
+      <div className="mx-1 xl:mx-24">
         <Hero />
       </div>
       <div>
         <SimpleSlider />
       </div>
-      <div className="container mx-auto px-8">
+      <div className="mx-1 xl:mx-24">
         <About />
         <Offer />
         <Tours />

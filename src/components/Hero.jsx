@@ -1,6 +1,6 @@
 import { HERO_CONTENT } from "../constants";
-import profilePic from "../assets/JoannaPro600.png";
-import { delay, motion } from "framer-motion";
+import profilePic from "../assets/JoannaPro600v2.png";
+import { motion } from "framer-motion";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -13,29 +13,24 @@ const container = (delay) => ({
 
 const Hero = () => {
   return (
-    <div className="pt-40 pb-4 lg:mb-35">
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-1/2">
-          <div id="hero" className="flex flex-col items-center">
+    <div className="pt-28 mt-10 pb-4 lg:mb-35 ">
+      <div className="flex flex-wrap max-w-[1800px] mx-auto">
+        <div className="w-full lg:w-1/2 xl:w-2/3">
+          <div id="hero" className="flex flex-col">
             <motion.h1
               variants={container(0)}
               initial="hidden"
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl max-w-xl"
+              className="pb-16 px-9 md:px-0 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl "
             >
               Joanna Wróblewski
             </motion.h1>
 
-            {/** 
-                 * <span className="bg-gradient-to-r from-blue-900 via-gray-500 to-red-900 bg-clip-text text-4xl tracking-tight text-transparent">
-                    Dyplomowany Przewodnik po Paryżu
-                </span>
-                */}
             <motion.span
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent max-w-xl"
+              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text px-9 md:px-0 text-4xl tracking-tight text-transparent "
             >
               Paryż to więcej niż miasto – to opowieść. Poznaj ją ze mną
               {/**Licencjonowany Przewodnik po Paryżu */}
@@ -44,13 +39,13 @@ const Hero = () => {
               variants={container(1)}
               initial="hidden"
               animate="visible"
-              className="my-2 max-w-xl py-6 font-light tracking-wide text-justify"
+              className="px-9 md:px-0 my-2 text-justify py-6 font-light tracking-wide"
             >
               {HERO_CONTENT}
             </motion.p>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 ">
+        <div className="w-full lg:w-1/2 xl:w-1/3 lg:p-8">
           <div className="flex justify-center">
             <motion.img
               animate={{
@@ -74,6 +69,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      {/* <div class="bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500">
+        test
+      </div> */}
     </div>
   );
 };
