@@ -1,27 +1,23 @@
 import { useState } from "react";
 import Slider from "react-slick";
-import pic1 from "../assets/carousel/1.png";
-import pic2 from "../assets/carousel/2.png";
-import pic3 from "../assets/carousel/3.png";
-import pic4 from "../assets/carousel/4.png";
-import pic5 from "../assets/carousel/5.png";
-import pic6 from "../assets/carousel/6.png";
-import pic7 from "../assets/carousel/7.png";
-import pic8 from "../assets/carousel/8.png";
-import pic9 from "../assets/carousel/9.png";
-import pic10 from "../assets/carousel/10.png";
-import pic11 from "../assets/carousel/11.png";
-import pic12 from "../assets/carousel/12.png";
-import pic13 from "../assets/carousel/13.png";
-import pic14 from "../assets/carousel/14.png";
-import pic15 from "../assets/carousel/15.png";
-import pic16 from "../assets/carousel/16.png";
-import pic17 from "../assets/carousel/17.png";
-import pic18 from "../assets/carousel/18.png";
-import pic19 from "../assets/carousel/19.png";
-import pic20 from "../assets/carousel/20.png";
-import pic21 from "../assets/carousel/21.png";
-import pic22 from "../assets/carousel/22.png";
+import pic1 from "../assets/carousel/1.avif"; // Zmiana na AVIF
+import pic2 from "../assets/carousel/2.avif";
+import pic3 from "../assets/carousel/3.avif";
+import pic6 from "../assets/carousel/6.avif";
+import pic7 from "../assets/carousel/7.avif";
+import pic9 from "../assets/carousel/9.avif";
+import pic10 from "../assets/carousel/10.avif";
+import pic11 from "../assets/carousel/11.avif";
+import pic12 from "../assets/carousel/12.avif";
+import pic13 from "../assets/carousel/13.avif";
+import pic14 from "../assets/carousel/14.avif";
+import pic16 from "../assets/carousel/16.avif";
+import pic17 from "../assets/carousel/17.avif";
+import pic18 from "../assets/carousel/18.avif";
+import pic19 from "../assets/carousel/19.avif";
+import pic20 from "../assets/carousel/20.avif";
+import pic21 from "../assets/carousel/21.avif";
+import pic22 from "../assets/carousel/22.avif";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -89,11 +85,14 @@ export default function SimpleSlider() {
       <Slider {...settings} className="h-full">
         {images.map((image, index) => (
           <div key={index} className="relative select-none">
-            <img
-              src={image}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-[50vh] object-cover lg:h-[60vh]" // Zmieniona wysokość dla małych i dużych ekranów
-            />
+            <picture>
+              <source srcSet={image} type="image/avif" />
+              <img
+                src={image.replace(".avif", ".jpg")} // Alternatywny format
+                alt={`Slide ${index + 1}`}
+                className="w-full h-[50vh] object-cover lg:h-[60vh]"
+              />
+            </picture>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-white text-lg font-extralight bg-black bg-opacity-60 p-6 lg:p-14 lg:text-4xl xl:text-4xl text-center">
                 {captions[currentSlide]}

@@ -1,4 +1,3 @@
-import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/JoannaPro600v2.png";
 import { motion } from "framer-motion";
 
@@ -12,6 +11,11 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
+  const HERO_CONTENT = `Jestem wykwalifikowanym, licencjonowanym przewodnikiem z ponad 30-letnim doświadczeniem, mieszkającym i pracującym w Paryżu. Oferuję szeroką gamę wycieczek po Paryżu i jego okolicach, dostosowanych do zainteresowań i potrzeb turystów.
+  Dlaczego warto wybrać mnie jako przewodnika po Paryżu?
+  Paryż to moje miasto, które znam jak własną kieszeń. Dzięki wieloletniemu doświadczeniu pomogę Ci odkryć zarówno popularne atrakcje turystyczne, jak i ukryte zakątki Paryża, które rzadko są odwiedzane przez turystów. Organizuję wycieczki, które dostosowuję indywidualnie do Twoich oczekiwań – od klasycznych tras po tematyczne zwiedzanie Paryża.
+  Wycieczki tematyczne po Paryżu
+  `;
   return (
     <div className="pt-28 mt-10 pb-4 lg:mb-35 ">
       <div className="flex flex-wrap max-w-[1800px] mx-auto">
@@ -26,15 +30,15 @@ const Hero = () => {
               Joanna Wróblewski
             </motion.h1>
 
-            <motion.span
+            <motion.h2
               variants={container(0.5)}
               initial="hidden"
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text px-9 md:px-0 text-4xl tracking-tight text-transparent "
+              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text px-9 md:px-0 text-4xl tracking-tighter text-transparent "
             >
               Paryż to więcej niż miasto – to opowieść. Poznaj ją ze mną
               {/**Licencjonowany Przewodnik po Paryżu */}
-            </motion.span>
+            </motion.h2>
             <motion.p
               variants={container(1)}
               initial="hidden"

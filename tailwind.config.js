@@ -14,6 +14,9 @@ export default {
         "custom-gradient-fade":
           "linear-gradient(to bottom, rgba(55, 52, 86, 1) 80%, rgba(55, 52, 86, 0) 100%)",
       },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"], // Dodaj czcionkę Inter do Tailwind
+      },
     },
   },
   plugins: [

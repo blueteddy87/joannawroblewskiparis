@@ -40,8 +40,8 @@ const Tours = () => {
                 transition={{ duration: 1 }}
                 className="w-full  lg:w-3/4" // Na mniejszych ekranach zajmie 50%, a na dużych 75%
               >
-                <h6 className="mb-2 font-semibold">{tours.title}</h6>
-                <p className="mb-4 text-neutral-400 font-light tracking-tight text-justify">
+                <h2 className="mb-2 font-semibold">{tours.title}</h2>
+                <p className="mb-4 text-neutral-300 font-light tracking-tight text-justify">
                   {tours.description}
                 </p>
                 {tours.atrakcje.map((tech, index) => (

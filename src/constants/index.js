@@ -2,20 +2,6 @@ import express from "../assets/projects/express.png";
 import elegant from "../assets/projects/elegant.png";
 import wyspy from "../assets/projects/wyspy.png";
 
-export const HERO_CONTENT = `Jestem wykwalifikowanym, licencjonowanym przewodnikiem z ponad 30-letnim doświadczeniem, mieszkającym i pracującym w Paryżu. Oferuję szeroką gamę wycieczek po Paryżu i jego okolicach, dostosowanych do zainteresowań i potrzeb turystów.
-Dlaczego warto wybrać mnie jako przewodnika po Paryżu?
-
-Paryż to moje miasto, które znam jak własną kieszeń. Dzięki wieloletniemu doświadczeniu pomogę Ci odkryć zarówno popularne atrakcje turystyczne, jak i ukryte zakątki Paryża, które rzadko są odwiedzane przez turystów. Organizuję wycieczki, które dostosowuję indywidualnie do Twoich oczekiwań – od klasycznych tras po tematyczne zwiedzanie Paryża.
-Wycieczki tematyczne po Paryżu
-
-`;
-
-export const ABOUT_TEXT = `Cześć! Jestem Joanna a Paryż to mój dom od lat 90. Od zawsze fascynuje mnie sztuka i architektura – to nie tylko moja praca, ale prawdziwa miłość, którą żyję każdego dnia. Mój dom, moje życie i każda moja opowieść są przesiąknięte tą pasją.
-
-Paryż to miasto, które wciąż odkrywa się na nowo. Znam jego tajemnice, sekrety i ukryte skarby, których nie znajdziesz w typowych przewodnikach. W moich wycieczkach nie chodzi tylko o odwiedzenie zabytków – chcę, byś poczuł ducha miasta, które inspirowało największych artystów i architektów.
-
-Każdy dzień spędzam na zgłębianiu historii Paryża, by dzielić się z Tobą nie tylko faktami, ale emocjami, które towarzyszą temu miastu. Jeśli chcesz odkryć Paryż pełen pasji, tajemnic i piękna, zapraszam Cię do wspólnej podróży.`;
-
 export const TOURS = [
   {
     title: "Paryż Express",

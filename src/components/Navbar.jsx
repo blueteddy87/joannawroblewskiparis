@@ -9,16 +9,13 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { Link } from "react-scroll";
-
 import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
-
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
 
-  // Handle scroll event
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setScrolling(true);
@@ -29,8 +26,6 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -51,7 +46,7 @@ const Navbar = () => {
               scrolling ? "w-14" : "w-40"
             }`}
             src={logo}
-            alt="logo"
+            alt="Logo Joanny Wróblewskiej - przewodnika po Paryżu"
           />
           {/* Menu */}
           <ul
@@ -66,7 +61,7 @@ const Navbar = () => {
                 duration={500}
                 className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
               >
-                Home
+                Strona Główna
               </Link>
             </li>
             <li>
@@ -74,7 +69,7 @@ const Navbar = () => {
                 to="about"
                 smooth={true}
                 duration={500}
-                className=" font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500 whitespace-nowrap"
+                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500 whitespace-nowrap"
               >
                 O mnie
               </Link>
@@ -84,9 +79,9 @@ const Navbar = () => {
                 to="offer"
                 smooth={true}
                 duration={500}
-                className=" font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
               >
-                Oferta
+                Moja Oferta
               </Link>
             </li>
             <li>
@@ -94,7 +89,7 @@ const Navbar = () => {
                 to="tours"
                 smooth={true}
                 duration={500}
-                className=" font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
               >
                 Wycieczki
               </Link>
@@ -114,7 +109,7 @@ const Navbar = () => {
                 to="contact"
                 smooth={true}
                 duration={500}
-                className=" font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
               >
                 Kontakt
               </Link>
@@ -131,6 +126,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600"
+            aria-label="Profil Joanny Wróblewskiej na Facebooku"
           >
             <FaFacebook />
           </a>
@@ -139,6 +135,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-600"
+            aria-label="Profil Joanny Wróblewskiej na Instagramie"
           >
             <FaInstagram />
           </a>
@@ -147,6 +144,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-orange-500"
+            aria-label="Blog Joanny Wróblewskiej"
           >
             <FaBlogger />
           </a>
@@ -155,6 +153,7 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-red-600"
+            aria-label="Kanał YouTube Joanny Wróblewskiej"
           >
             <FaYoutube />
           </a>
@@ -189,7 +188,7 @@ const Navbar = () => {
               duration={500}
               className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
             >
-              Home
+              Strona Główna
             </Link>
           </li>
           <li className="mb-6">
@@ -211,7 +210,7 @@ const Navbar = () => {
               duration={500}
               className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
             >
-              Oferta
+              Moja Oferta
             </Link>
           </li>
           <li className="mb-6">
