@@ -14,14 +14,11 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
   const [nav, setNav] = useState(false);
+
   const handleClick = () => setNav(!nav);
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
-    }
+    setScrolling(window.scrollY > 50);
   };
 
   useEffect(() => {
@@ -30,6 +27,15 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const menuItems = [
+    { name: "Strona Główna", to: "app" },
+    { name: "O mnie", to: "about" },
+    { name: "Moja Oferta", to: "offer" },
+    { name: "Wycieczki", to: "tours" },
+    { name: "Opinie", to: "review" },
+    { name: "Kontakt", to: "contact" },
+  ];
 
   return (
     <nav
@@ -40,7 +46,7 @@ const Navbar = () => {
       } flex items-center px-4`}
     >
       <div className="flex items-center justify-center w-full max-w-[1400px] mx-auto">
-        <div className="flex flex- items-center flex-grow">
+        <div className="flex flex-grow items-center">
           <img
             className={`mx-2 transition-all duration-300 ${
               scrolling ? "w-14" : "w-40"
@@ -48,74 +54,27 @@ const Navbar = () => {
             src={logo}
             alt="Logo Joanny Wróblewskiej - przewodnika po Paryżu"
           />
-          {/* Menu */}
           <ul
-            className={`hidden lg:flex items-center justify-center mx-auto space-x-6 lg:space-x-4  ${
+            className={`hidden lg:flex items-center justify-center mx-auto space-x-6 ${
               scrolling ? "text-sm font-semibold" : "text-base"
             }`}
           >
-            <li>
-              <Link
-                to="app"
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-              >
-                Strona Główna
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="about"
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500 whitespace-nowrap"
-              >
-                O mnie
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="offer"
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-              >
-                Moja Oferta
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="tours"
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-              >
-                Wycieczki
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="review"
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-              >
-                Opinie
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="contact"
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-              >
-                Kontakt
-              </Link>
-            </li>
+            {menuItems.map(({ name, to }) => (
+              <li key={to}>
+                <Link
+                  to={to}
+                  smooth={true}
+                  duration={500}
+                  className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                  aria-label={`Przejdź do sekcji ${name}`}
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
+        {/* Social Links */}
         <div
           className={`flex items-center justify-center mx-2 gap-6 text-3xl ${
             scrolling ? "text-xl" : "text-3xl"
@@ -125,7 +84,6 @@ const Navbar = () => {
             href="https://www.facebook.com/joannawroblewskiparyz/?fref=ts"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-600"
             aria-label="Profil Joanny Wróblewskiej na Facebooku"
           >
             <FaFacebook />
@@ -134,7 +92,6 @@ const Navbar = () => {
             href="https://www.instagram.com/przewodnikpoparyzu?igsh=bjRtYmh0NXRiejVr"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-pink-600"
             aria-label="Profil Joanny Wróblewskiej na Instagramie"
           >
             <FaInstagram />
@@ -143,7 +100,6 @@ const Navbar = () => {
             href="https://przewodnikparyzjoanna.blogspot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-orange-500"
             aria-label="Blog Joanny Wróblewskiej"
           >
             <FaBlogger />
@@ -152,12 +108,12 @@ const Navbar = () => {
             href="https://www.youtube.com/@przewodnikpoparyzujoannawr9021"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-red-600"
             aria-label="Kanał YouTube Joanny Wróblewskiej"
           >
             <FaYoutube />
           </a>
         </div>
+        {/* Mobile Menu */}
         <motion.div
           id="burger"
           onClick={handleClick}
@@ -166,86 +122,31 @@ const Navbar = () => {
             scale: nav ? [1, 1.1, 1] : [1],
           }}
           transition={{ duration: 0.5 }}
-          className={`flex items-center justify-center mx-6 z-10  lg:hidden ${
+          className={`flex items-center justify-center mx-6 z-10 lg:hidden ${
             scrolling ? "text-2xl" : "text-5xl"
           }`}
         >
           {!nav ? <FaBars className="text-white" /> : <FaTimes />}
         </motion.div>
-
         <ul
-          className={
-            !nav
-              ? "hidden"
-              : "absolute top-0 right-0 text-3xl w-full h-screen bg-custom-gradient flex flex-col justify-center items-center"
-          }
+          className={`absolute top-0 right-0 text-3xl w-full h-screen bg-custom-gradient flex flex-col justify-center items-center ${
+            !nav ? "hidden" : ""
+          }`}
         >
-          <li className="mb-6">
-            <Link
-              onClick={handleClick}
-              to="app"
-              smooth={true}
-              duration={500}
-              className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-            >
-              Strona Główna
-            </Link>
-          </li>
-          <li className="mb-6">
-            <Link
-              onClick={handleClick}
-              to="about"
-              smooth={true}
-              duration={500}
-              className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500 whitespace-nowrap"
-            >
-              O mnie
-            </Link>
-          </li>
-          <li className="mb-6">
-            <Link
-              onClick={handleClick}
-              to="offer"
-              smooth={true}
-              duration={500}
-              className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-            >
-              Moja Oferta
-            </Link>
-          </li>
-          <li className="mb-6">
-            <Link
-              onClick={handleClick}
-              to="tours"
-              smooth={true}
-              duration={500}
-              className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-            >
-              Wycieczki
-            </Link>
-          </li>
-          <li className="mb-6">
-            <Link
-              onClick={handleClick}
-              to="review"
-              smooth={true}
-              duration={500}
-              className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-            >
-              Opinie
-            </Link>
-          </li>
-          <li className="mb-6">
-            <Link
-              onClick={handleClick}
-              to="contact"
-              smooth={true}
-              duration={500}
-              className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-            >
-              Kontakt
-            </Link>
-          </li>
+          {menuItems.map(({ name, to }) => (
+            <li className="mb-6" key={to}>
+              <Link
+                onClick={handleClick}
+                to={to}
+                smooth={true}
+                duration={500}
+                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                aria-label={`Przejdź do sekcji ${name}`}
+              >
+                {name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

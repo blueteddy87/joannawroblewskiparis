@@ -1,4 +1,4 @@
-import profilePic from "../assets/JoannaPro600v2.png";
+import profilePic from "../assets/JoannaPro600v2.avif";
 import { motion } from "framer-motion";
 
 const container = (delay) => ({
@@ -11,10 +11,7 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
-  const HERO_CONTENT = `Jestem wykwalifikowanym, licencjonowanym przewodnikiem z ponad 30-letnim doświadczeniem, mieszkającym i pracującym w Paryżu. Oferuję szeroką gamę wycieczek po Paryżu i jego okolicach, dostosowanych do zainteresowań i potrzeb turystów.
-  Dlaczego warto wybrać mnie jako przewodnika po Paryżu?
-  Paryż to moje miasto, które znam jak własną kieszeń. Dzięki wieloletniemu doświadczeniu pomogę Ci odkryć zarówno popularne atrakcje turystyczne, jak i ukryte zakątki Paryża, które rzadko są odwiedzane przez turystów. Organizuję wycieczki, które dostosowuję indywidualnie do Twoich oczekiwań – od klasycznych tras po tematyczne zwiedzanie Paryża.
-  Wycieczki tematyczne po Paryżu
+  const HERO_CONTENT = `Jestem licencjonowanym przewodnikiem po Paryżu z wieloletnim doświadczeniem. Oferuję różnorodne wycieczki dostosowane do Twoich zainteresowań, odkrywając zarówno popularne atrakcje, jak i ukryte zakątki miasta. Dzięki mojej znajomości Paryża, z przyjemnością poprowadzę Cię przez klasyczne trasy oraz tematyczne zwiedzanie. Wybierz mnie, aby odkryć prawdziwego ducha Paryża!
   `;
   return (
     <div className="pt-28 mt-10 pb-4 lg:mb-35 ">
@@ -39,14 +36,14 @@ const Hero = () => {
               Paryż to więcej niż miasto – to opowieść. Poznaj ją ze mną
               {/**Licencjonowany Przewodnik po Paryżu */}
             </motion.h2>
-            <motion.p
+            <motion.h3
               variants={container(1)}
               initial="hidden"
               animate="visible"
               className="px-9 md:px-0 my-2 text-justify py-6 font-light tracking-wide"
             >
               {HERO_CONTENT}
-            </motion.p>
+            </motion.h3>
           </div>
         </div>
         <div className="w-full lg:w-1/2 xl:w-1/3 lg:p-8">
@@ -58,7 +55,7 @@ const Hero = () => {
                 rotate: [0, 0, 360, 360, 0],
               }}
               transition={{
-                duration: 3,
+                duration: 2,
               }}
               src={profilePic}
               alt="Joanna Wróblewska"

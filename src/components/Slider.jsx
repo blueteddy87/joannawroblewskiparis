@@ -91,6 +91,7 @@ export default function SimpleSlider() {
                 src={image.replace(".avif", ".jpg")} // Alternatywny format
                 alt={`Slide ${index + 1}`}
                 className="w-full h-[50vh] object-cover lg:h-[60vh]"
+                loading="lazy" // Lazy loading
               />
             </picture>
             <div className="absolute inset-0 flex items-center justify-center">
