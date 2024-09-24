@@ -135,7 +135,7 @@ const Navbar = () => {
             <FaFacebook />
           </a>
           <a
-            href="https://przewodnikparyzjoanna.blogspot.com/"
+            href="https://www.instagram.com/przewodnikpoparyzu?igsh=bjRtYmh0NXRiejVr"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-600"

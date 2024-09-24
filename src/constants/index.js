@@ -16,16 +16,6 @@ Paryż to miasto, które wciąż odkrywa się na nowo. Znam jego tajemnice, sekr
 
 Każdy dzień spędzam na zgłębianiu historii Paryża, by dzielić się z Tobą nie tylko faktami, ale emocjami, które towarzyszą temu miastu. Jeśli chcesz odkryć Paryż pełen pasji, tajemnic i piękna, zapraszam Cię do wspólnej podróży.`;
 
-export const ABOUT_TEEXT = `Proponuję tematyczne wycieczki po Paryżu, które odkrywają tajemnice tego magicznego miasta. Zwiedzisz miejsca, w których bywali francuscy królowie, Maria Skłodowska-Curie, Fryderyk Chopin czy Maria Walewska. Oprowadzę Cię po historycznych bulwarach i galeriach, a także pokażę najpiękniejsze widoki Paryża, takie jak panorama na wzgórzu Montmartre.
-W pełni zorganizowane wycieczki po Paryżu
-
-Pozwól mi zdjąć z Ciebie ciężar organizacji – zadbam o wszystkie szczegóły, w tym rezerwacje obiadów, rejsów po Sekwanie czy noclegów. Dzięki mojej wiedzy i doświadczeniu maksymalnie wykorzystasz swój czas w Paryżu.
-Odkryj tajemnice Paryża z lokalnym przewodnikiem
-
-Paryż jest miejscem narodzin can canu, inspiracją dla artystów takich jak Mickiewicz, a także miastem, które przyciąga największych malarzy, muzyków i pisarzy. Czy słyszałeś o bulwarach i galeriach Paryża? Czy chciałbyś zobaczyć miejsca, gdzie Mickiewicz wydał „Pana Tadeusza”?
-
-Zapraszam do wspólnego zwiedzania najbardziej romantycznego miasta na świecie – Paryża! Niezależnie od tego, czy to Twoja pierwsza wizyta, czy chcesz odkryć nowe, mniej znane miejsca, gwarantuję niezapomniane wrażenia i pełne zanurzenie w kulturę i historię Paryża.`;
-
 export const TOURS = [
   {
     title: "Paryż Express",
@@ -65,12 +55,6 @@ export const TOURS = [
     ],
   },
 ];
-
-export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
-};
 
 export const review = [
   {

@@ -95,7 +95,7 @@ export default function SimpleSlider() {
               className="w-full h-[50vh] object-cover lg:h-[60vh]" // Zmieniona wysokość dla małych i dużych ekranów
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white text-lg font-extralight bg-black bg-opacity-60 p-6 lg:p-14 lg:text-4xl xl:text-6xl text-center">
+              <div className="text-white text-lg font-extralight bg-black bg-opacity-60 p-6 lg:p-14 lg:text-4xl xl:text-4xl text-center">
                 {captions[currentSlide]}
               </div>
             </div>
