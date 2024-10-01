@@ -8,12 +8,15 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll"; // Link do przewijania wewnątrz strony
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom"; // Link do nawigacji między stronami
 import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
   const [nav, setNav] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleClick = () => setNav(!nav);
 
@@ -28,13 +31,23 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleNavigation = (to) => {
+    if (location.pathname !== "/") {
+      navigate("/"); // Przekierowujemy na stronę główną
+      setTimeout(() => {
+        document.getElementById(to)?.scrollIntoView({ behavior: "smooth" }); // Scroll do sekcji
+      }, 500); // Opóźnienie na załadowanie strony
+    }
+  };
+
   const menuItems = [
-    { name: "Strona Główna", to: "app" },
-    { name: "O mnie", to: "about" },
-    { name: "Moja Oferta", to: "offer" },
-    { name: "Wycieczki", to: "tours" },
-    { name: "Opinie", to: "review" },
-    { name: "Kontakt", to: "contact" },
+    { name: "Strona Główna", to: "app", type: "scroll" }, // Przewijanie wewnątrz strony
+    { name: "O mnie", to: "about", type: "scroll" }, // Przewijanie wewnątrz strony
+    { name: "Moja Oferta", to: "offer", type: "scroll" }, // Przewijanie wewnątrz strony
+    { name: "Wycieczki", to: "tours", type: "scroll" }, // Przewijanie wewnątrz strony
+    { name: "Opinie", to: "review", type: "scroll" }, // Przewijanie wewnątrz strony
+    { name: "Kontakt", to: "contact", type: "scroll" }, // Przewijanie wewnątrz strony
+    { name: "Blog", to: "/blog", type: "router" }, // Nawigacja do strony bloga
   ];
 
   return (
@@ -55,25 +68,46 @@ const Navbar = () => {
             alt="Logo Joanny Wróblewskiej - przewodnika po Paryżu"
           />
           <ul
-            className={`hidden lg:flex items-center justify-center mx-auto space-x-6 ${
+            className={`hidden lg:flex items-center justify-center mx-auto space-x-3 ${
               scrolling ? "text-sm font-semibold" : "text-base"
             }`}
           >
-            {menuItems.map(({ name, to }) => (
+            {menuItems.map(({ name, to, type }) => (
               <li key={to}>
-                <Link
-                  to={to}
-                  smooth={true}
-                  duration={500}
-                  className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-                  aria-label={`Przejdź do sekcji ${name}`}
-                >
-                  {name}
-                </Link>
+                {type === "scroll" ? (
+                  location.pathname === "/" ? (
+                    <ScrollLink
+                      to={to}
+                      smooth={true}
+                      duration={500}
+                      className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                      aria-label={`Przejdź do sekcji ${name}`}
+                    >
+                      {name}
+                    </ScrollLink>
+                  ) : (
+                    <span
+                      onClick={() => handleNavigation(to)}
+                      className="cursor-pointer font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                      aria-label={`Przejdź do sekcji ${name}`}
+                    >
+                      {name}
+                    </span>
+                  )
+                ) : (
+                  <RouterLink
+                    to={to}
+                    className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                    aria-label={`Przejdź do strony ${name}`}
+                  >
+                    {name}
+                  </RouterLink>
+                )}
               </li>
             ))}
           </ul>
         </div>
+
         {/* Social Links */}
         <div
           className={`flex items-center justify-center mx-2 gap-6 text-3xl ${
@@ -81,18 +115,18 @@ const Navbar = () => {
           }`}
         >
           <a
-            href="https://www.facebook.com/joannawroblewskiparyz/?fref=ts"
+            href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Profil Joanny Wróblewskiej na Facebooku"
+            aria-label="Facebook"
           >
             <FaFacebook />
           </a>
           <a
-            href="https://www.instagram.com/przewodnikpoparyzu?igsh=bjRtYmh0NXRiejVr"
+            href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Profil Joanny Wróblewskiej na Instagramie"
+            aria-label="Instagram"
           >
             <FaInstagram />
           </a>
@@ -100,19 +134,20 @@ const Navbar = () => {
             href="https://przewodnikparyzjoanna.blogspot.com/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Blog Joanny Wróblewskiej"
+            aria-label="Blog"
           >
             <FaBlogger />
           </a>
           <a
-            href="https://www.youtube.com/@przewodnikpoparyzujoannawr9021"
+            href="https://www.youtube.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Kanał YouTube Joanny Wróblewskiej"
+            aria-label="YouTube"
           >
             <FaYoutube />
           </a>
         </div>
+
         {/* Mobile Menu */}
         <motion.div
           id="burger"
@@ -133,18 +168,39 @@ const Navbar = () => {
             !nav ? "hidden" : ""
           }`}
         >
-          {menuItems.map(({ name, to }) => (
+          {menuItems.map(({ name, to, type }) => (
             <li className="mb-6" key={to}>
-              <Link
-                onClick={handleClick}
-                to={to}
-                smooth={true}
-                duration={500}
-                className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
-                aria-label={`Przejdź do sekcji ${name}`}
-              >
-                {name}
-              </Link>
+              {type === "scroll" ? (
+                location.pathname === "/" ? (
+                  <ScrollLink
+                    onClick={handleClick}
+                    to={to}
+                    smooth={true}
+                    duration={500}
+                    className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                    aria-label={`Przejdź do sekcji ${name}`}
+                  >
+                    {name}
+                  </ScrollLink>
+                ) : (
+                  <span
+                    onClick={() => handleNavigation(to)}
+                    className="cursor-pointer font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                    aria-label={`Przejdź do sekcji ${name}`}
+                  >
+                    {name}
+                  </span>
+                )
+              ) : (
+                <RouterLink
+                  onClick={handleClick}
+                  to={to}
+                  className="font-extrabold text-white bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-600 transition duration-500"
+                  aria-label={`Przejdź do strony ${name}`}
+                >
+                  {name}
+                </RouterLink>
+              )}
             </li>
           ))}
         </ul>
