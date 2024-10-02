@@ -9,6 +9,7 @@ import Review from "./components/Review";
 import SimpleSlider from "./components/Slider";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Blogs from "./components/Blogs";
+import BlogCard from "./components/BlogCard"; // Import komponentu szczegółowego
 
 const App = () => {
   return (
@@ -47,7 +48,10 @@ const App = () => {
               </>
             }
           />
+          {/* Trasa do listy blogów */}
           <Route path="/blog" element={<Blogs />} />
+          {/* Trasa do szczegółowej strony bloga z dynamicznym ID */}
+          <Route path="/blog/:id" element={<BlogCard />} />
         </Routes>
       </div>
     </Router>

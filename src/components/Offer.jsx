@@ -43,7 +43,7 @@ const Offer = () => {
             variants={inconVariants(2.5)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <RiInformation2Line className="text-7xl text-white" />
           </motion.div>
@@ -55,7 +55,7 @@ const Offer = () => {
             variants={inconVariants(3)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <BiHotel className="text-7xl text-green-700" />
           </motion.div>
@@ -67,7 +67,7 @@ const Offer = () => {
             variants={inconVariants(5)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <MdDinnerDining className="text-7xl text-orange-500" />
           </motion.div>
@@ -79,7 +79,7 @@ const Offer = () => {
             variants={inconVariants(6)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <MdOutlineDirectionsBoatFilled className="text-7xl text-blue-500" />
           </motion.div>
@@ -93,7 +93,7 @@ const Offer = () => {
             variants={inconVariants(4)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <AiOutlineWechat className="text-7xl text-violet-700" />
           </motion.div>
@@ -105,7 +105,7 @@ const Offer = () => {
             variants={inconVariants(2.5)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <RiGuideLine className="text-7xl text-red-800" />
           </motion.div>
@@ -117,7 +117,7 @@ const Offer = () => {
             variants={inconVariants(3.5)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
             <FaRegSmileWink className="text-7xl text-yellow-500" />
           </motion.div>
@@ -129,9 +129,9 @@ const Offer = () => {
             variants={inconVariants(1.5)}
             initial="initial"
             animate="animate"
-            className="rounded-2xl border-4 border-neutral-800 p-4"
+            className="rounded-2xl border-2 border-neutral-800 p-4"
           >
-            <FaWalking className="text-7xl text-amber-900" />
+            <FaWalking className="text-7xl text-green-700" />
           </motion.div>
           <p className="text-center font-light tracking-tighter">Spacery</p>
         </div>

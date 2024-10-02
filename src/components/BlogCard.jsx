@@ -1,67 +1,115 @@
-// import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import useContentful from "./contentful";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { LuLayoutList } from "react-icons/lu";
 
-// const BlogCard = ({ blogs }) => {
-//   return (
-//     <Wrapper
-//       background={blogs.media.file.url}
-//       className="p-4 rounded-lg shadow-lg"
-//     >
-//       <TextContainer className="bg-white p-4 rounded-lg">
-//         <Title>{blogs.name}</Title>
-//         <Subtitle>{blogs.description}</Subtitle>
-//       </TextContainer>
-//     </Wrapper>
-//   );
-// };
+const BlogCard = () => {
+  const { id } = useParams(); // Pobieramy ID wpisu z URL
+  const [blog, setBlog] = useState(null); // Stan na pojedynczy wpis
+  const [allBlogs, setAllBlogs] = useState([]); // Stan na wszystkie wpisy do nawigacji
+  const { getBlogs } = useContentful();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-// export default BlogCard;
+  useEffect(() => {
+    getBlogs().then((response) => {
+      setAllBlogs(response.items);
+      const blogItem = response.items.find((item) => item.sys.id === id); // Znajdujemy odpowiedni wpis na podstawie ID
+      if (blogItem) {
+        setBlog({
+          id: blogItem.sys.id,
+          title: blogItem.fields.title,
+          content: documentToPlainTextString(blogItem.fields.content),
+          media: blogItem.fields.media
+            ? blogItem.fields.media.map((m) => m.fields)
+            : [],
+        });
+      }
+    });
+  }, [id]);
 
-// const Wrapper = styled.div`
-//   display: grid;
-//   align-items: flex-end;
-//   width: 240px;
-//   height: 240px;
-//   border-radius: 20px;
-//   box-shadow: 0px 20px 40px rgba(52, 53, 99, 0.2),
-//     0px 1px 3px rgba(0, 0, 0, 0.05);
-//   background: ${(props) =>
-//     props.background && `url(${props.background}) center no-repeat`};
-//   background-size: auto 150%;
-// `;
+  // Funkcja obsługująca nawigację do poprzedniego i następnego bloga
+  const navigateToBlog = (direction) => {
+    const currentIndex = allBlogs.findIndex((item) => item.sys.id === id);
 
-// const TextContainer = styled.div`
-//   cursor: pointer;
-//   display: grid;
-//   background: rgba(255, 255, 255, 0.3);
-//   padding: 20px;
-//   gap: 10px;
-//   width: 100%;
+    if (direction === "prev" && currentIndex > 0) {
+      const prevBlog = allBlogs[currentIndex - 1];
+      navigate(`/blog/${prevBlog.sys.id}`);
+    } else if (direction === "next" && currentIndex < allBlogs.length - 1) {
+      const nextBlog = allBlogs[currentIndex + 1];
+      navigate(`/blog/${nextBlog.sys.id}`);
+    }
+  };
 
-//   :hover {
-//     height: fit-content;
-//     width: auto;
+  // Funkcja do nawigacji powrotnej na stronę bloga
+  const handleGoBack = () => {
+    navigate("/blog");
+  };
 
-//     p:last-child {
-//       visibility: visible;
-//       display: block;
-//     }
-//   }
-// `;
+  if (!blog) {
+    return <p>Loading...</p>; // Wyświetlamy, dopóki wpis się nie załaduje
+  }
 
-// const Title = styled.p`
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 20px;
-//   color: #000000;
-//   margin: 0;
-// `;
+  return (
+    <div id="blog-post" className="pt-40 pb-4 lg:mb-35">
+      <div className="mx-auto min-h-screen bg-white text-neutral-900">
+        {/* Sekcja przycisków nawigacyjnych */}
 
-// const Subtitle = styled.p`
-//   font-weight: normal;
-//   font-size: 12px;
-//   font-style: italic;
-//   color: rgba(0, 0, 0, 0.7);
-//   margin: 0;
-//   visibility: hidden;
-//   display: none;
-// `;
+        <div className="flex justify-center space-x-4 pt-8 mb-8">
+          <button
+            onClick={handleGoBack}
+            className="flex items-center mr-9 px-6 py-6 lg:px-4 lg:py-4  text-xl lg:text-4xl bg-gray-100 text-gray-700 rounded-full shadow-lg hover:bg-gray-300 transition duration-300"
+          >
+            <LuLayoutList className="" />
+          </button>
+
+          <button
+            onClick={() => navigateToBlog("prev")}
+            className="flex items-center px-6 py-6 lg:px-4 lg:py-4  text-xl lg:text-4xl bg-gray-100 text-gray-700 rounded-full shadow-lg hover:bg-gray-300 transition duration-300"
+            disabled={allBlogs.findIndex((item) => item.sys.id === id) === 0}
+          >
+            <FaArrowLeft className="rounded-full" />
+          </button>
+          <button
+            onClick={() => navigateToBlog("next")}
+            className="flex items-center px-6 py-6 lg:px-4 lg:py-4  text-xl lg:text-4xl bg-gray-100 text-gray-700 rounded-full shadow-lg hover:bg-gray-300 transition duration-300"
+            disabled={
+              allBlogs.findIndex((item) => item.sys.id === id) ===
+              allBlogs.length - 1
+            }
+          >
+            <FaArrowRight className="" />
+          </button>
+        </div>
+
+        <div className="my-20 pt-2 text-center font-thin tracking-tight lg:mt-16 lg:text-8xl text-4xl">
+          <h1>{blog.title}</h1>
+        </div>
+
+        <div className="flex flex-col lg:flex-row lg:space-x-6 max-w-[1400px] mx-auto px-8">
+          <div className="lg:w-2/3">
+            {/* Tekst będzie zajmował 2/3 szerokości */}
+            <div className="text-lg font-light tracking-tight text-justify">
+              <p>{blog.content}</p>
+            </div>
+          </div>
+
+          {blog.media.length > 0 && blog.media[0].file && (
+            <div className="lg:w-1/3 mb-8 lg:mb-0">
+              {/* Obrazek będzie zajmował 1/3 szerokości */}
+              <img
+                src={`https:${blog.media[0].file.url}`}
+                alt={blog.media[0].title}
+                className="rounded-lg object-cover w-full h-auto"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BlogCard;

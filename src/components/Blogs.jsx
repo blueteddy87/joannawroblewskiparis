@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Importujemy useNavigate
 import useContentful from "./contentful";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"; // importujemy funkcję
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const { getBlogs } = useContentful();
+  const navigate = useNavigate(); // Deklarujemy nawigację
 
   useEffect(() => {
     getBlogs().then((response) => {
       console.log(response); // Zobacz dokładną strukturę danych z Contentful
       const sanitizedBlogs = response.items.map((item) => ({
+        id: item.sys.id, // Dodajemy ID wpisu z Contentful
         title: item.fields.title,
         // Konwersja Rich Text na zwykły tekst
         content: documentToPlainTextString(item.fields.content),
@@ -18,7 +21,7 @@ const Blogs = () => {
       }));
       setBlogs(sanitizedBlogs);
     });
-  }, []); // Dodajemy pustą tablicę zależności, aby efekt uruchomił się tylko raz
+  }, []);
 
   // Funkcja przycinająca tekst
   const truncateText = (text, maxLength) => {
@@ -28,17 +31,24 @@ const Blogs = () => {
     return text;
   };
 
+  // Funkcja nawigująca do konkretnej strony wpisu
+  const handleNavigate = (id) => {
+    navigate(`/blog/${id}`); // Nawigacja do odpowiedniej strony wpisu
+  };
+
   return (
     <div id="blogs" className="pt-20 pb-4 lg:mb-35">
-      <div className="max-w-[1800px] mx-auto bg-white text-neutral-900">
+      <div className=" mx-auto bg-white text-neutral-900">
         <motion.h1
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.5 }}
-          className="my-20 pt-10 text-center  font-thin tracking-tight lg:mt-16 lg:text-8xl"
+          className="my-20 pt-10 text-center font-thin tracking-tight lg:mt-16 lg:text-8xl text-4xl"
         >
           BLOG
-          <p className=" pt-4 text-4xl">Paryż słowami przewodnika</p>
+          <p className=" pt-4 text-2xl lg:text-4xl tracking-wide">
+            Paryż słowami przewodnika
+          </p>
         </motion.h1>
 
         <div className="flex flex-col px-8 max-w-[1400px] mx-auto lg:justify-center w-full">
@@ -46,7 +56,8 @@ const Blogs = () => {
             blogs.map((blog, index) => (
               <div
                 key={index}
-                className="mb-10 flex flex-col md:flex-row items-start w-full lg:space-x-8" // Zmiana na flex-col dla mniejszych ekranów
+                className="mb-10 flex flex-col md:flex-row items-start w-full lg:space-x-8 cursor-pointer" // Dodajemy cursor-pointer
+                onClick={() => handleNavigate(blog.id)} // Obsługa kliknięcia - przenoszenie do strony szczegółowej wpisu
               >
                 {/* Sprawdzenie, czy media i plik istnieją */}
                 {blog.media.length > 0 && blog.media[0].file && (
@@ -54,7 +65,7 @@ const Blogs = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     initial={{ opacity: 0, x: -100 }}
                     transition={{ duration: 1 }}
-                    className="w-full md:w-1/3 mb-6 flex justify-center drop-shadow-xl" // Zmiana na w-full dla mniejszych ekranów
+                    className="w-full md:w-1/3 mb-6 flex justify-center drop-shadow-xl"
                   >
                     <img
                       src={`https:${blog.media[0].file.url}`}
@@ -72,11 +83,10 @@ const Blogs = () => {
                   <h2 className="text-4xl font-semibold mb-2">{blog.title}</h2>
                   <p className="text-neutral-950 font-light tracking-tight text-justify">
                     {truncateText(blog.content, 400)}
-                  </p>{" "}
-                  <p className=" pt-4 font-light text-neutral-400 ">
-                    (Cytaj dalej...)
                   </p>
-                  {/* Przycinamy do 400 znaków */}
+                  <p className="pt-4 font-light text-neutral-400 ">
+                    (Czytaj dalej...)
+                  </p>
                 </motion.div>
               </div>
             ))
