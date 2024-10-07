@@ -49,14 +49,16 @@ const Hero = () => {
         <div className="w-full lg:w-1/2 xl:w-1/3 lg:p-8">
           <div className="flex justify-center">
             <motion.img
-              animate={{
-                delay: 1,
-                scale: [1, 1.2, 1.2, 1, 1],
-                rotate: [0, 0, 360, 360, 0],
-              }}
-              transition={{
-                duration: 2,
-              }}
+              animate={{ x: 100 }}
+              transition={{ delay: 1 }}
+              // animate={{
+              //   delay: 1,
+              //   scale: [1, 1.2, 1.2, 1, 1],
+              //   rotate: [0, 0, 360, 0],
+              // }}
+              // transition={{
+              //   duration: 2,
+              // }}
               src={profilePic}
               alt="Joanna Wróblewska"
             />
